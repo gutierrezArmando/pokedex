@@ -9,6 +9,6 @@ export interface IPokemon {
   height:string;
   weight:string;
   abilities:string;
-  hiddenAbility:string;
+  hiddenAbility?:string;
   stats: Istats[]
 }
