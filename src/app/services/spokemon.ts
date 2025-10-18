@@ -4,6 +4,7 @@ import { IPokemon } from '../interfaces/ipokemon';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -53,6 +54,14 @@ export class SPokemon {
 
     }
     return null;
+  }
+
+  getPokemon(id:number){
+    //se be formar una ruta como:
+    // https://pokeapi.co/api/v2/pokemon/:id
+    const ruta= `${this.URL_BASE}/${id}`;
+    return CapacitorHttp.get( {url:ruta, params:{} } )
+    .then( (resp: HttpResponse) => this.processPokemon(resp.data) );
   }
 
   private processPokemon( pokemonData: any){

@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonContent, IonHeader, IonTitle, IonToolbar, LoadingController, IonGrid, IonRow, IonCol,
   IonImg, IonText, IonCard, IonCardContent, IonInfiniteScroll, IonInfiniteScrollContent, InfiniteScrollCustomEvent
 } from '@ionic/angular/standalone';
@@ -19,8 +20,13 @@ export class ListPokemonsPage {
   //Inyeccion de la dependencia, no olvidar importarlo
   private loadingCtroller: LoadingController = inject(LoadingController);
 
+  //inyectar la dependencia
+  private router: Router = inject(Router)
+
+
   //variable para almacenar todos los poquemos en pantalla
   pokemons: IPokemon[] = [];
+
 
   constructor() { }
 
@@ -59,6 +65,17 @@ export class ListPokemonsPage {
       });
 
     }
+  }
+
+
+  //Se crea la función para mostrar la pagina
+  goToPage(pokemon: IPokemon){
+    //se utiliza el navigate de router
+    //espera un arreglo para la ruta
+    //parte1/parte2/.../parteN
+    //[parte1, parte2,..., parteN]
+    console.log("Aqui entra");
+    this.router.navigate(['detail-pokemon',pokemon.id]);
   }
 
 }
