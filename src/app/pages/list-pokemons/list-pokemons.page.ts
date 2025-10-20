@@ -65,6 +65,9 @@ export class ListPokemonsPage {
       });
 
     }
+    else{
+      event?.target.complete();
+    }
   }
 
 

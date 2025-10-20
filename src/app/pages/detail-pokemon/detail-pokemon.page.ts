@@ -1,7 +1,9 @@
 import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, LoadingController, IonFab, IonFabButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonImg, IonGrid, IonRow, IonCol, IonText, IonRouterOutlet } from '@ionic/angular/standalone';
+import { IonContent, LoadingController, IonFab, IonFabButton, IonIcon,
+  IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonImg,
+  IonGrid, IonRow, IonCol, IonText, IonProgressBar } from '@ionic/angular/standalone';
 import { SPokemon } from 'src/app/services/spokemon';
 import { IPokemon } from 'src/app/interfaces/ipokemon';
 import { addIcons } from 'ionicons';
@@ -18,7 +20,7 @@ import { Router } from '@angular/router';
     IonFabButton,
     IonIcon,
     IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonImg,
-    IonGrid, IonRow, IonCol, IonText, IonRouterOutlet]
+    IonGrid, IonRow, IonCol, IonText, IonProgressBar ]
 })
 export class DetailPokemonPage {
 
@@ -56,6 +58,10 @@ export class DetailPokemonPage {
 
   goBack(){
     this.router.navigateByUrl('list-pokemons');
+  }
+
+  toNumber(strNumber: string): number{
+    return Number(strNumber);
   }
 
 }
